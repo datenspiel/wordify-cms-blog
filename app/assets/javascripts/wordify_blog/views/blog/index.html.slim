@@ -1,0 +1,22 @@
+div data-yield="blog_navigation"
+div
+  a data-route="routes.blogPosts.new" class="btn btn-primary"
+    | New Post Entry
+div ng-controller="BlogCtrl"
+  table class="table table-striped table-bordered"
+    thead
+      tr
+        th
+          | Title
+        th
+          | Category
+        th
+    tbody
+      tr data-foreach-post="posts"
+        td
+          a data-bind="post.title" data-route="routes.blogPosts.edit[post]"
+        td data-bind="post.category.name"
+        td data-bind-id="post.id | prepend 'post-delete-'"
+          a data-event-click="controllers.Blog.destroy | withArguments post" class="btn btn-danger"
+            i class="icon-trash"
+            span class="gapable-icon" data-bind="t.wordify_cms.actions.destroy"

@@ -1,0 +1,11 @@
+.DS_Store
+
+.sass*
+
+spec/dummy/lib/wordify.cms/extensions/wordify_blog
+spec/dummy/tmp
+features
+
+
+Gemfile.lock
+

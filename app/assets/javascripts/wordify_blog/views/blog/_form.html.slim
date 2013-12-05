@@ -1,0 +1,7 @@
+input type="text" placeholder="Title" data-bind="post.title" id="post_title"
+label for="post_text"
+textarea id="post_text" data-bind="post.text" data-view="TinyMceView" class="tiny-editor"
+label for="post_category_id"
+  | Category
+select id="post_category_id" data-bind="post.category_id"
+  option data-foreach-category="categories" data-bind-value="category.id" data-bind="category.name"

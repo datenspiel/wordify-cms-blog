@@ -1,0 +1,14 @@
+div data-yield="blog_navigation"
+h3
+  | Edit Category
+div class="blog-form"
+  form data-formfor-category="category" data-event-submit="update"
+    fieldset
+      legend
+        | Edit category
+      .category-form data-partial="blog_categories/_form"
+    .form-actions
+      button type="submit" class="btn btn-success"
+        i class="icon-ok"
+        span class="gapable-icon" data-bind="t.wordify_cms.actions.save"
+      a data-route="routes.blog.index" class="btn" data-bind="t.wordify_cms.actions.cancel"
