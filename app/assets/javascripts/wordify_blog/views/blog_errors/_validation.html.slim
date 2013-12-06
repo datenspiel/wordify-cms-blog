@@ -1,0 +1,5 @@
+.alert.alert-error data-showif="subject.errors.length"
+  p
+    strong data-bind="subject.errors.length | i18n_pluralize 'errors.messages.not_saved_js'"
+  ul
+    li data-foreach-error="subject.errors" data-bind="error.errorMessage"
