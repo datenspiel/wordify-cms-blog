@@ -12,10 +12,11 @@ Wordify.BlogNavigationable =
       setTimeout =>
         postsIndexRoute     = Wordify.routeFor(routePath: 'blog.index')
         categoryIndexRoute  = Wordify.routeFor(routePath: 'blogCategories.index')
-
+        disqusConfigRoute   = Wordify.routeFor(routePath: 'blogDisqusConfig.edit')
         j('*[data-yield="blog_navigation"]').html(view.get('html'))
         j('#posts-tab a').attr('href', "#!#{postsIndexRoute}")
         j('#category-tab a').attr('href', "#!#{categoryIndexRoute}")
+        j('#disqus-tab a').attr('href', "#!#{disqusConfigRoute}")
 
         if options.active
           j(options.active).addClass('active')

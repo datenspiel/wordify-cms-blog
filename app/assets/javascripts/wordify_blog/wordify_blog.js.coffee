@@ -30,6 +30,13 @@ class Wordify.WordifyBlog extends Wordify.Extension
   @addRoute '/blog/categories/:id', 'blogCategories#edit', \
             as: 'blog_categories.edit'
 
+  ##############################################################################
+  # Blog disqus config
+  ##############################################################################
+  @addRoute '/blog/disqus/config', 'blogDisqusConfig#edit', \
+            as: 'blog_disqus_config.edit'
+
+
   # Hook in at the end of the toolbar
   @hookIn {
     at          : 'toolbar',
@@ -55,4 +62,3 @@ Cms.Editor.tinyMceOptions = (selector)->
       menubar: "file edit format view"
       toolbar: "undo redo | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | print preview fullscreen",
   return options
-

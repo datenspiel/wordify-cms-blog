@@ -2,17 +2,10 @@ require 'spec_helper'
 
 describe WordifyCms::Blog::CategoryController do
   wordify_routes
+  wordify_preferences
 
   let(:blog_category) do
     Fabricate(:blog_category)
-  end
-
-  before do
-    controller.class_eval do
-      def current_preferences
-        Fabricate(:preference)
-      end
-    end
   end
 
   describe "GET" do
@@ -88,7 +81,7 @@ describe WordifyCms::Blog::CategoryController do
           post :create, :blog_category => category_params, :format => "json"
         end
 
-        it_behaves_like "handle not logged in user"
+        it_behaves_like "user is not logged in"
       end
 
     end
@@ -125,7 +118,7 @@ describe WordifyCms::Blog::CategoryController do
               :format => "json"
         end
 
-        it_behaves_like "handle not logged in user"
+        it_behaves_like "user is not logged in"
       end
 
     end
@@ -159,7 +152,7 @@ describe WordifyCms::Blog::CategoryController do
           delete :destroy, :id => 12, :format => "json"
         end
 
-        it_behaves_like "handle not logged in user"
+        it_behaves_like "user is not logged in"
       end
     end
   end

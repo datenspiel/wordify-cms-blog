@@ -1,0 +1,22 @@
+div data-yield="blog_navigation"
+h3
+  | Edit Disqus Config
+div class="blog-form"
+  form data-formfor-disqus_config="disqusConfig" data-event-submit="update"
+    fieldset
+      legend
+        | Edit Disqus API Tokens
+      .information data-partial="blog_errors/_validation" data-context-subject="disqusConfig"
+      label for="disqus-config-api-secret"
+        | API Secret Token
+      input type="text" id="disqus-config-api-secret" data-bind="disqusConfig.api_secret"
+      label for="disqus-config-api-key"
+        | API Secret Token
+      input type="text" id="disqus-config-api-key" data-bind="disqusConfig.api_key"
+      label for="disqus-config-access_token"
+        | API Access Token
+      input type="text" id="disqus-config-access_token" data-bind="disqusConfig.access_token"
+    .form-actions
+      button type="submit" class="btn btn-success"
+        i class="icon-ok"
+        span class="gapable-icon" data-bind="t.wordify_cms.actions.save"

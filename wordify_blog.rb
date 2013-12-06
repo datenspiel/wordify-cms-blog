@@ -7,8 +7,13 @@ class WordifyBlog < WordifyCms::Extension
   # end
 
   add_routes do
-    resources :blog_posts,      :controller => "blog/post"
-    resources :blog_categories, :controller => "blog/category"
+    resources :blog_posts,          :controller => "blog/post"
+    resources :blog_categories,     :controller => "blog/category"
+
+    resource  :blog_disqus_config,  :controller => "blog/disqus_config",
+                                    :only => [:show, :update]
+
+    match '/blog_disqus_config/:id' => 'blog/disqus_config#update'
   end
 
 end

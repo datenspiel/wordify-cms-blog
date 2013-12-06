@@ -16,6 +16,17 @@ module WordifyCms
           sign_in :wordify_cms_account, entitled_user#, :bypass => true
         end
       end
+
+      def wordify_preferences
+        before do
+          controller.class_eval do
+            def current_preferences
+              Fabricate(:preference)
+            end
+          end
+        end
+      end
+
     end
   end
 end

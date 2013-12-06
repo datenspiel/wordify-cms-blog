@@ -16,3 +16,9 @@ end
 Fabricator(:blog_category, :from => "WordifyCms::Blog::Category") do
   name Faker::Lorem.words(1)
 end
+
+Fabricator(:disqus_config, :from => "WordifyCms::Blog::DisqusConfig") do
+  api_key       "your_api_key"
+  api_secret    "your_api_secret"
+  access_token  "12345"
+end

@@ -113,7 +113,7 @@ describe WordifyCms::Blog::PostController do
           post :create, :blog_post => params, :format => "json"
         end
 
-        it_behaves_like "handle not logged in user"
+        it_behaves_like "user is not logged in"
 
       end
 
@@ -129,7 +129,7 @@ describe WordifyCms::Blog::PostController do
           put :update, :id => 12, :format => "json"
         end
 
-        it_behaves_like "handle not logged in user"
+        it_behaves_like "user is not logged in"
       end
 
       context "user that is logged in" do
@@ -170,7 +170,7 @@ describe WordifyCms::Blog::PostController do
           delete :destroy, :id => 12, :format => "json"
         end
 
-        it_behaves_like "handle not logged in user"
+        it_behaves_like "user is not logged in"
 
       end
 

@@ -3,7 +3,7 @@ module WordifyCms
     module RSpec
       module SharedExamples
 
-        shared_examples_for "handle not logged in user" do
+        shared_examples_for "user is not logged in" do
 
           subject{ ActiveSupport::JSON.decode(response.body) }
 

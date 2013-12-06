@@ -2,3 +2,18 @@ en:
   wordify_cms:
     blog:
       navigation: "Blog"
+      disqus_config:
+        access_token: "Access Token"
+    errors:
+      access_token:
+        cant_be_blank: "You must provide your Disqus Access Token."
+      api_key:
+        cant_be_blank: "You must provide your Disqus public API key."
+      api_secret:
+        cant_be_blank: "You must provide your Disqus secret API key."
+  mongoid:
+    attributes:
+      wordify_cms/blog/disqus_config:
+        api_secret: "API Token (secret)"
+        api_key: "API Token (public)"
+        access_token: "Access Token"

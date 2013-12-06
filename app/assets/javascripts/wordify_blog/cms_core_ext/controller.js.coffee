@@ -29,4 +29,8 @@ Wordify.Controller::handleSaving = (options) ->
       else
         self.checkBanned(err)
     else
-      self.redirectTo(location: options.redirect, notification:options.redirectMsg)
+      if options.redirect
+        self.redirectTo(location: options.redirect, \
+                        notification:options.redirectMsg)
+      else
+        alertify.success(I18n.t("Wordify_cms.#{options.redirectMsg}"))
