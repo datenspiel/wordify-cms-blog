@@ -1,6 +1,6 @@
 Fabricator(:blog_post, :from => "WordifyCms::Blog::Post") do
-  title Faker::Lorem.words(4)
-  text  Faker::Lorem.phrases
+  title { sequence(:title) { |n| "#{Faker::Lorem.words(4).join(" ")}"} }
+  text  { sequence(:text) { Faker::Lorem.phrases.join("") } }
 end
 
 Fabricator(:account, :from => :"WordifyCms::Account") do
@@ -14,11 +14,44 @@ Fabricator(:preference, :from => :"WordifyCms::Preference") do
 end
 
 Fabricator(:blog_category, :from => "WordifyCms::Blog::Category") do
-  name Faker::Lorem.words(1)
+  name do
+    sequence(:name) { Faker::Lorem.words(1).join("") }
+  end
+  posts(count: 3) do |attrs, i|
+    Fabricate(:blog_post)
+  end
+
 end
 
 Fabricator(:disqus_config, :from => "WordifyCms::Blog::DisqusConfig") do
   api_key       "your_api_key"
   api_secret    "your_api_secret"
   access_token  "12345"
+end
+
+Fabricator(:html_pages, :from => "WordifyCms::HTMLPage") do
+  name "Just a div"
+  identifier "fabricator-page"
+  template <<-LIQUID
+    <div data-page-type-facade="fabricator-page.body"></div>
+  LIQUID
+end
+
+Fabricator(:page, :from => "WordifyCms::Page") do
+  title "My awesome blog start page"
+  slug "/fooo"
+  page_type { Fabricate(:html_pages) }
+  site { Fabricate(:site) }
+end
+
+Fabricator(:blog_config, :from => "WordifyCms::Blog::Configuration") do
+  blog_main_page { Fabricate(:page, :slug => "/blog") }
+  blog_post_detail_page { Fabricate(:page, :slug => "/blog_view") }
+end
+
+Fabricator(:page_dictionary, :from => "WordifyCms::PageDictionary") do
+end
+
+Fabricator(:site, :from => :"WordifyCms::Site") do
+  name { sequence(:name) { |i| "My wonderful Page #{i}" } }
 end

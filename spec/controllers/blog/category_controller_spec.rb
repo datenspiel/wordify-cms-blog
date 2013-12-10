@@ -4,6 +4,11 @@ describe WordifyCms::Blog::CategoryController do
   wordify_routes
   wordify_preferences
 
+  before do
+    Fabricate(:page_dictionary)
+    Fabricate(:blog_config)
+  end
+
   let(:blog_category) do
     Fabricate(:blog_category)
   end

@@ -4,6 +4,9 @@ DUMMY_ROOT      = File.expand_path("../dummy", __FILE__)
 
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
+Dir[File.join(EXTENSION_ROOT, "app/models/concerns", "**", "*.rb")].each do |f|
+  require f
+end
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 
 require 'rspec/rails'
@@ -12,6 +15,8 @@ require 'database_cleaner'
 require 'mongoid-rspec'
 require 'fabrication'
 require 'ffaker'
+require 'vcr'
+require 'faraday'
 
 Dir[File.join(EXTENSION_ROOT, "app", "**", "*.rb")].each{ |file| require file }
 Dir[File.join(SPEC_ROOT, "support", "**","*.rb")].each do |file|
@@ -27,6 +32,7 @@ RSpec.configure do |config|
   config.include Mongoid::Matchers
   config.extend WordifyCms::RSpec::Controller,              :type => :controller
   config.include WordifyCms::Blog::RSpec::SharedExamples,   :type => :controller
+  config.extend WordifyCms::RSpec::Tags
 
   config.before(:suite) do
     FileUtils.rm_rf(File.expand_path("../wordify_blog",SPEC_ROOT))

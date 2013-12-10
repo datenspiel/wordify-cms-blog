@@ -36,6 +36,11 @@ class Wordify.WordifyBlog extends Wordify.Extension
   @addRoute '/blog/disqus/config', 'blogDisqusConfig#edit', \
             as: 'blog_disqus_config.edit'
 
+  ##############################################################################
+  # Blog general config
+  ##############################################################################
+  @addRoute '/blog/configuration', 'blogConfiguration#edit', \
+            as: 'blog_configuration.edit'
 
   # Hook in at the end of the toolbar
   @hookIn {

@@ -1,6 +1,9 @@
 input type="text" placeholder="Title" data-bind="post.title" id="post_title"
 label for="post_text"
 textarea id="post_text" data-bind="post.text" data-view="TinyMceView" class="tiny-editor"
+label for="post_permalink"
+  | Permalink
+input type="text" placeholder="Permalink" data-bind="post.permalink" id="post_permalink"
 label for="post_category_id"
   | Category
 select id="post_category_id" data-bind="post.category_id"

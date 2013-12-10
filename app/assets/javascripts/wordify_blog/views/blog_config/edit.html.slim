@@ -1,0 +1,21 @@
+div data-yield="blog_navigation"
+h3
+  | Edit Blog Preferences
+div class="blog-form"
+  form data-formfor-blog_config="blogConfig" data-event-submit="update"
+    fieldset
+      legend
+        | Edit Blog general preferences
+      .information data-partial="blog_errors/_validation" data-context-subject="blogConfig"
+      label for="blog-config-posts-slug-prefix-id"
+        | Url Prefix for blog posts
+      select id="blog-config-posts-slug-prefix-id" data-bind="blogConfig.blog_main_page_id"
+        option data-foreach-blog_page="blogPages" data-bind-value="blog_page.id" data-bind="blog_page.slug"
+      label for="blog-config-post-detail-page-id"
+        | Post Detail Page
+      select id="blog-config-post-detail-page-id" data-bind="blogConfig.blog_post_detail_page_id"
+        option data-foreach-blog_detail_page="blogPostPages" data-bind-value="blog_detail_page.id" data-bind="blog_detail_page.title"
+      .form-actions
+        button type="submit" class="btn btn-success"
+          i class="icon-ok"
+          span class="gapable-icon" data-bind="t.wordify_cms.actions.save"

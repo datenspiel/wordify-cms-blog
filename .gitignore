@@ -5,6 +5,7 @@
 spec/dummy/lib/wordify.cms/extensions/wordify_blog
 spec/dummy/tmp
 spec/dummy/log
+spec/dummy/public/sitemaps
 features
 
 

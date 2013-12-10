@@ -9,6 +9,8 @@ describe WordifyCms::Blog::PostController do
         Fabricate(:preference)
       end
     end
+    Fabricate(:page_dictionary)
+    Fabricate(:blog_config)
   end
 
   let(:blog_post) do

@@ -15,6 +15,7 @@ group :test do
   gem "capybara-webkit", "0.14.2"
   gem "capybara", "2.0.2"
   gem "launchy"
+  gem "vcr"
 
   gem "sass"
   gem "coffee-script"
