@@ -16,8 +16,10 @@ module WordifyCms
             @name = name
           end
         end.new(included_in_klass.name)
+        included_in_klass.instance_variable_set(:@class_definition_mock,
+                                                class_definition_mock)
         define_method :class_definition do
-          return class_definition_mock
+          return self.class.instance_variable_get(:@class_definition_mock)
         end
       end
 
