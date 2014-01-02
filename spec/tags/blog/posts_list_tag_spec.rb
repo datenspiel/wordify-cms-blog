@@ -30,7 +30,7 @@ describe WordifyCms::Blog::Tags::PostsList do
   let(:posts){ WordifyCms::Blog::Post.all }
 
   it "" do
-    options = { :controller => my_controller }
+    options = { :controller => my_controller, :params => {} }
     compiled = Liquid::Template.parse(template).
                                 render({},{:registers => options})
     posts.each do |post|

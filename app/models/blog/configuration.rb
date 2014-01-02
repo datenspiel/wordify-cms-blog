@@ -10,6 +10,9 @@ module WordifyCms
 
       delegate :slug, :to => :blog_main_page, :prefix => :blog_prefix
 
+      field :per_page_pagination, :type     => Integer,
+                                  :default  => 10
+
     end
   end
 end

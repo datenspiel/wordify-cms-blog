@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem 'disqussion'
+gem 'kaminari'
 gem 'wordify.cms',  :git => 'git@github.com:dsci/wordify.cms.git',
                     :branch => 'develop'
 

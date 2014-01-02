@@ -1,3 +1,5 @@
+require_relative 'lib/kaminari/kaminari_extensions'
+
 class WordifyBlog < WordifyCms::Extension
 
   # You may need some routes for your extension:
