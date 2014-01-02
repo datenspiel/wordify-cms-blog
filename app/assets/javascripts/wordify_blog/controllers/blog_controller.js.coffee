@@ -6,7 +6,6 @@ class Wordify.BlogController extends Wordify.Controller
 
   @beforeFilter only: ['index','edit', 'new'], 'renderToolbar'
   @beforeFilter only: ['index','edit', 'new'], 'renderUserNavigation'
-  @beforeFilter only: ['index','edit', 'new'], 'toggleBackendContent'
 
   @mixin Wordify.Controllerable
   @mixin Wordify.BlogNavigationable
