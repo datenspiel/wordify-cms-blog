@@ -11,3 +11,5 @@ features
 
 Gemfile.lock
 
+.ruby-version
+.ruby-gemset
