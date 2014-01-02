@@ -15,13 +15,16 @@ module WordifyCms
       end
 
       def update
-        page_id        = params["blog_config"]["blog_main_page_id"]
-        detail_page_id = params["blog_config"]["blog_post_detail_page_id"]
-        blog_main_page = WordifyCms::Page.find(page_id)
-        detail_page    = WordifyCms::Page.find(detail_page_id)
+        page_id           = params["blog_config"]["blog_main_page_id"]
+        detail_page_id    = params["blog_config"]["blog_post_detail_page_id"]
+        category_page_id  = params["blog_config"]["category_page_id"]
+        blog_main_page    = WordifyCms::Page.find(page_id)
+        detail_page       = WordifyCms::Page.find(detail_page_id)
+        category_page     = WordifyCms::Page.find(category_page_id)
 
         @configuration.blog_main_page         = blog_main_page
         @configuration.blog_post_detail_page  = detail_page
+        @configuration.category_page          = category_page
         @configuration.save
 
         respond_to do |format|
@@ -41,7 +44,15 @@ module WordifyCms
         respond_with(pages)
       end
 
+      def categories
+        respond_with(category_pages)
+      end
+
       private
+
+      def category_pages
+        select_pages("WordifyCms::Blog::Tags::CategoryView")
+      end
 
       def blog_pages
         select_pages("WordifyCms::Blog::Tags::PostsList")

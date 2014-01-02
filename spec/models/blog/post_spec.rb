@@ -115,23 +115,7 @@ describe WordifyCms::Blog::Post do
 
   end
 
-  describe "#class_definition" do
-
-    let(:class_definition){ subject.class_definition }
-
-    it "provides #name" do
-      expect(class_definition).to respond_to(:name)
-    end
-
-    describe "#name" do
-
-      it "is the blog post class name" do
-        expect(class_definition.name).to eq subject.class.name
-      end
-
-    end
-
-  end
+  it_behaves_like "having a class definition", "blog post"
 
   describe "#permalink_alias" do
     before do

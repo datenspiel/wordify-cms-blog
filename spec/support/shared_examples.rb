@@ -30,6 +30,26 @@ module WordifyCms
 
         end
 
+        shared_examples_for "having a class definition" do |subject_name|
+          describe "#class_definition" do
+
+            let(:class_definition){ subject.class_definition }
+
+            it "provides #name" do
+              expect(class_definition).to respond_to(:name)
+            end
+
+            describe "#name" do
+
+              it "is the #{subject_name} class name" do
+                expect(class_definition.name).to eq subject.class.name
+              end
+
+            end
+
+          end
+        end
+
       end
     end
   end

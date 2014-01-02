@@ -5,5 +5,5 @@ class Wordify.BlogConfiguration extends Wordify.Model
   @persist Batman.RailsStorage
 
   @encode 'blog_main_page_id', 'blog_prefix_slug',
-          'blog_post_detail_page_id'
+          'blog_post_detail_page_id', 'category_page_id'
 

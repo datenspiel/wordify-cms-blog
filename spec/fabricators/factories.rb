@@ -20,6 +20,7 @@ Fabricator(:blog_category, :from => "WordifyCms::Blog::Category") do
   posts(count: 3) do |attrs, i|
     Fabricate(:blog_post)
   end
+  link_alias{ Fabricate(:page_alias) }
 
 end
 
@@ -47,6 +48,7 @@ end
 Fabricator(:blog_config, :from => "WordifyCms::Blog::Configuration") do
   blog_main_page { Fabricate(:page, :slug => "/blog") }
   blog_post_detail_page { Fabricate(:page, :slug => "/blog_view") }
+  category_page { Fabricate(:page, :slug => "/category_page") }
 end
 
 Fabricator(:page_dictionary, :from => "WordifyCms::PageDictionary") do
@@ -54,4 +56,11 @@ end
 
 Fabricator(:site, :from => :"WordifyCms::Site") do
   name { sequence(:name) { |i| "My wonderful Page #{i}" } }
+end
+
+Fabricator(:page_alias, :from => "WordifyCms::PageAlias") do
+  url do
+    sequence(:url){ |i| "/slug_#{i}" }
+  end
+  page { Fabricate(:page) }
 end

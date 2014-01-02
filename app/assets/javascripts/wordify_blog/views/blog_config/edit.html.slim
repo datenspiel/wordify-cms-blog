@@ -15,6 +15,10 @@ div class="blog-form"
         | Post Detail Page
       select id="blog-config-post-detail-page-id" data-bind="blogConfig.blog_post_detail_page_id"
         option data-foreach-blog_detail_page="blogPostPages" data-bind-value="blog_detail_page.id" data-bind="blog_detail_page.title"
+      label for="blog-config-category-detail-page-id"
+        | Category Detail Page
+      select id="blog-config-category-detail-page-id" data-bind-value="blogConfig.category_page_id"
+        option data-foreach-category_page="categoryPages" data-bind-value="category_page.id" data-bind="category_page.title"
       .form-actions
         button type="submit" class="btn btn-success"
           i class="icon-ok"

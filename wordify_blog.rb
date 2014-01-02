@@ -18,6 +18,7 @@ class WordifyBlog < WordifyCms::Extension
     match '/blog_disqus_config/:id' => 'blog/disqus_config#update'
     match '/blog_config/:id'        => 'blog/configuration#update'
     match '/blog/config/pages/:type' => 'blog/configuration#pages'
+    match '/blog/config/categories' => 'blog/configuration#categories'
 
   end
 

@@ -27,19 +27,28 @@ class Wordify.BlogConfigurationController extends Wordify.Controller
           else
             Wordify.Page.url = undefined
             @set('blogPostPages', detailViewResults)
-            Wordify.BlogConfiguration.load (err,result)=>
-              if err
-                @checkBanned(err)
+            Wordify.Page.url = "/blog/config/categories"
+            Wordify.Page.load (categoryLoadErr, categoryPagesResults) =>
+              if categoryLoadErr
+                @checkBanned(categoryLoadErr)
               else
-                @set('blogConfig', result[0])
-                @renderView('blog_config/edit')
-                @renderBlogNavigation(active: '#preferences-tab')
+                Wordify.Page.url = undefined
+                @set('categoryPages', categoryPagesResults)
+                Wordify.BlogConfiguration.load (err,result)=>
+                  if err
+                    @checkBanned(err)
+                  else
+                    @set('blogConfig', result[0])
+                    @renderView('blog_config/edit')
+                    @renderBlogNavigation(active: '#preferences-tab')
 
   update: (params)->
     @blogConfig.set('blog_main_page_id', \
                     j("#blog-config-posts-slug-prefix-id").val())
     @blogConfig.set('blog_post_detail_page_id', \
                     j("#blog-config-post-detail-page-id").val())
+    @blogConfig.set('category_page_id', \
+                    j("#blog-config-category-detail-page-id").val())
 
     Wordify.BlogConfiguration.url = "/blog_config"
     options =

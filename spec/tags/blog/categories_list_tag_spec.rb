@@ -6,6 +6,7 @@ describe WordifyCms::Blog::Tags::CategoriesList do
   before do
     Fabricate(:page_dictionary)
     Fabricate(:blog_config)
+    3.times { Fabricate(:blog_category) }
   end
 
   let(:template) do
@@ -18,12 +19,6 @@ describe WordifyCms::Blog::Tags::CategoriesList do
         </ul>
       {% endblog_categories %}
     HTML
-  end
-
-  before do
-    3.times do
-      Fabricate(:blog_category)
-    end
   end
 
   let(:categories){ WordifyCms::Blog::Category.all }

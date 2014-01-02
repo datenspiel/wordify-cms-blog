@@ -67,11 +67,13 @@ describe WordifyCms::Blog::ConfigurationController do
 
         let(:blog_page){ Fabricate(:page, :slug => "/my_blog") }
         let(:detail_page){ Fabricate(:page, :slug => "/post_detail")}
+        let(:category_page){ Fabricate(:page, :slug => "/blog_categories")}
 
         before do
           params = {
-            :blog_main_page_id                => blog_page.id,
-            :blog_post_detail_page_id  => detail_page.id
+            :blog_main_page_id         => blog_page.id,
+            :blog_post_detail_page_id  => detail_page.id,
+            :category_page_id          => category_page.id
           }
           WordifyCms::Blog::Configuration.should_receive(:last).
                                           and_return(blog_config)
