@@ -23,7 +23,8 @@ describe WordifyCms::Blog::Tags::CategoryView do
 
   it "renders all posts of the category" do
     options = { :controller => my_controller,
-                :model_id   => category.id }
+                :model_id   => category.id,
+                :params     => {}  }
     compiled = Liquid::Template.parse(template).
                                 render({}, :registers => options)
     post_line = "<li>#{WordifyCms::Blog::Post.last.title}</li>"

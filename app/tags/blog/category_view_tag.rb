@@ -1,3 +1,4 @@
+require_relative '../concerns/paginateable'
 module WordifyCms
   module Blog
     module Tags
