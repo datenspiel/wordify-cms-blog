@@ -14,7 +14,7 @@ module WordifyCms
             page_alias            = config.fetch(:page_alias)
             permalink_prefix      = config.fetch(:permalink_prefix)
             category_page_prefix  = blog_config.category_page.slug.
-                                                              gsub(/^\//, "")
+                                                gsub(/^\/+|\/+$/, "")
             permalink             = [ permalink_prefix,
                                       category_page_prefix,
                                       record.dasherized_name ].join("/")
