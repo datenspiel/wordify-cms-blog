@@ -53,15 +53,19 @@ class Wordify.BlogController extends Wordify.Controller
     @_saveOrUpdate(options)
 
   update: (params)->
-    textValue = tinymce.get('post_text').getContent()
+    textValue   = tinymce.get('post_text').getContent()
+    categoryId  = j("#post_category_id").val()
     @post.set('text', textValue)
-    options =
-      errorMsg    : 'wordify_cms.notifications.blog.post.errors.update'
-      redirectMsg : 'notifications.blog.post.updated'
-    @_saveOrUpdate(options)
+    Wordify.BlogCategory.find(categoryId, (err, categoryResult) =>
+      @post.set('category', categoryResult)
+      options =
+        errorMsg    : 'wordify_cms.notifications.blog.post.errors.update'
+        redirectMsg : 'notifications.blog.post.updated'
+      @_saveOrUpdate(options)
+    )
+
 
   destroy: (blog_post)->
-    console.log("$destroy")
     message = I18n.t('wordify_cms.notifications.delete_question', \
                      {name: blog_post.get('title')})
     Cms.WordifyDialog.confirm message,
