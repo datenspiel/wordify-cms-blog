@@ -1,11 +1,9 @@
 div data-yield="blog_navigation"
-h3
-  | Edit Category
+h3 data-bind="t.wordify_cms.blog.category.form.edit.headline"
 div class="blog-form"
   form data-formfor-category="category" data-event-submit="update"
     fieldset
-      legend
-        | Edit category
+      legend data-bind="t.wordify_cms.blog.category.form.edit.headline"
       .category-form data-partial="blog_categories/_form"
     .form-actions
       button type="submit" class="btn btn-success"

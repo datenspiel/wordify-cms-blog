@@ -1,19 +1,17 @@
 div data-yield="blog_navigation"
 div
-  a data-route="routes.blogCategories.new" class="btn btn-primary"
-    | New Category
-  div class="blog_categories-list"
-    table class="table table-striped table-bordered"
-      thead
-        tr
-          th
-            | Name
-          th
-      tbody
-        tr data-foreach-category="categories"
-          td
-            a data-bind="category.name" data-route="routes.blogCategories.edit[category]"
-          td data-bind-id="category.id | prepend 'category-delete-'"
-            a data-event-click="controllers.BlogCategories.destroy | withArguments category" class="btn btn-danger"
-              i class="icon-trash"
-              span class="gapable-icon" data-bind="t.wordify_cms.actions.destroy"
+  a data-route="routes.blogCategories.new" class="btn btn-primary" data-bind="t.wordify_cms.blog.category.new"
+div class="blog_categories-list"
+  table class="table table-striped table-bordered"
+    thead
+      tr
+        th data-bind="t.wordify_cms.blog.category.name"
+        th
+    tbody
+      tr data-foreach-category="categories"
+        td
+          a data-bind="category.name" data-route="routes.blogCategories.edit[category]"
+        td data-bind-id="category.id | prepend 'category-delete-'"
+          a data-event-click="controllers.BlogCategories.destroy | withArguments category" class="btn btn-danger"
+            i class="icon-trash"
+            span class="gapable-icon" data-bind="t.wordify_cms.actions.destroy"

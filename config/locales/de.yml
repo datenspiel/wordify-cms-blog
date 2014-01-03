@@ -2,3 +2,52 @@ de:
   wordify_cms:
     blog:
       navigation: "Blog"
+      disqus_config:
+        access_token: "Zugangs-Token"
+      preferences:
+        headline: "Blogeinstellungen bearbeiten"
+        blog_post_prefix: "URL-Präfix für Blog-Beiträge"
+        blog_detail_page: "Post Detailseite"
+        blog_category_detail_page: "Kategorie-Detailseite"
+        blog_items_per_pagination_page: "(Seitennummerierung) Artikel pro Seite"
+      post:
+        new: "Neuer Eintrag"
+        title: "Titel"
+        permalink: "Permanentlink"
+        category: "Kategorie"
+        form:
+          edit:
+            headline: "Eintrag bearbeiten"
+          new:
+            headline: "Neuer Eintrag"
+      category:
+        new: "Neue Kategorie"
+        name: "Name"
+        form:
+          edit:
+            headline: "Kategorie bearbeiten"
+          new:
+            headline: "Eine neue Kategorie hinzufügen"
+      disqus_config:
+        api_secret_token: "API Secret Token"
+        api_secret_key:   "API Secret Key"
+        api_access_token: "API Access Token"
+        form:
+          edit:
+            headline: "Disqus-Konfiguration bearbeiten"
+    errors:
+      access_token:
+        cant_be_blank: "Sie müssen Ihren Disqus-Zugangs-Token zur Verfügung stellen."
+      api_key:
+        cant_be_blank: "Sie müssen Ihren öffentlichen API-Schlüssel von Disqus zur Verfügung stellen."
+      api_secret:
+        cant_be_blank: "Sie müssen Ihren geheimen API-Schlüssel von Disqus zur Verfügung stellen."
+  mongoid:
+    attributes:
+      wordify_cms/blog/disqus_config:
+        api_secret: "API Token (geheim)"
+        api_key: "API Token (öffentlich)"
+        access_token: "Zugangs-Token"
+      wordify_cms/blog/post:
+        title: "Titel"
+        category: "Kategorie"

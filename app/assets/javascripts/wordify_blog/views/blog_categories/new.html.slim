@@ -1,11 +1,9 @@
 div data-yield="blog_navigation"
-h3
-  | New Category
+h3 data-bind="t.wordify_cms.blog.category.new"
 div class="blog-form"
   form data-formfor-category="category" data-event-submit="create"
     fieldset
-      legend
-        | Add a new category
+      legend data-bind="t.wordify_cms.blog.category.form.new.headline"
       .category-form data-partial="blog_categories/_form"
     .form-actions
       button type="submit" class="btn btn-success"

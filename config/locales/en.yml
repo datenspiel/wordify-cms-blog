@@ -4,6 +4,37 @@ en:
       navigation: "Blog"
       disqus_config:
         access_token: "Access Token"
+      preferences:
+        headline: "Edit Blog Preferences"
+        blog_post_prefix: "Url Prefix for blog posts"
+        blog_detail_page: "Post Detail Page"
+        blog_category_detail_page: "Category Detail Page"
+        blog_items_per_pagination_page: "(Pagination) Items per page"
+      post:
+        new: "New Post Entry"
+        title: "Title"
+        permalink: "Permalink"
+        category: "Category"
+        form:
+          edit:
+            headline: "Edit Post Entry"
+          new:
+            headline: "New Post Entry"
+      category:
+        new: "New Category"
+        name: "Name"
+        form:
+          edit:
+            headline: "Edit Category"
+          new:
+            headline: "Add a new category"
+      disqus_config:
+        api_secret_token: "API Secret Token"
+        api_secret_key:   "API Secret Key"
+        api_access_token: "API Access Token"
+        form:
+          edit:
+            headline: "Edit Disqus Configuration"
     errors:
       access_token:
         cant_be_blank: "You must provide your Disqus Access Token."
@@ -17,3 +48,6 @@ en:
         api_secret: "API Token (secret)"
         api_key: "API Token (public)"
         access_token: "Access Token"
+      wordify_cms/blog/post:
+        title: "Title"
+        category: "Category"

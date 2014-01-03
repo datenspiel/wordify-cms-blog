@@ -1,26 +1,21 @@
 div data-yield="blog_navigation"
-h3
-  | Edit Blog Preferences
+h3 data-bind="t.wordify_cms.blog.preferences.headline"
+
 div class="blog-form"
   form data-formfor-blog_config="blogConfig" data-event-submit="update"
     fieldset
-      legend
-        | Edit Blog general preferences
+      legend data-bind="t.wordify_cms.blog.preferences.headline"
       .information data-partial="blog_errors/_validation" data-context-subject="blogConfig"
-      label for="blog-config-posts-slug-prefix-id"
-        | Url Prefix for blog posts
+      label for="blog-config-posts-slug-prefix-id" data-bind="t.wordify_cms.blog.preferences.blog_post_prefix"
       select id="blog-config-posts-slug-prefix-id" data-bind="blogConfig.blog_main_page_id"
         option data-foreach-blog_page="blogPages" data-bind-value="blog_page.id" data-bind="blog_page.slug"
-      label for="blog-config-post-detail-page-id"
-        | Post Detail Page
+      label for="blog-config-post-detail-page-id" data-bind="t.wordify_cms.blog.preferences.blog_detail_page"
       select id="blog-config-post-detail-page-id" data-bind="blogConfig.blog_post_detail_page_id"
         option data-foreach-blog_detail_page="blogPostPages" data-bind-value="blog_detail_page.id" data-bind="blog_detail_page.title"
-      label for="blog-config-category-detail-page-id"
-        | Category Detail Page
+      label for="blog-config-category-detail-page-id" data-bind="t.wordify_cms.blog.preferences.blog_category_detail_page"
       select id="blog-config-category-detail-page-id" data-bind-value="blogConfig.category_page_id"
         option data-foreach-category_page="categoryPages" data-bind-value="category_page.id" data-bind="category_page.title"
-      label for="blog-config-per-page-pagination-id"
-        | (Pagination) Items per page
+      label for="blog-config-per-page-pagination-id" data-bind="t.wordify_cms.blog.preferences.blog_items_per_pagination_page"
       input type="text" data-bind="blogConfig.per_page_pagination" id="blog-config-per-page-pagination-id"
       .form-actions
         button type="submit" class="btn btn-success"

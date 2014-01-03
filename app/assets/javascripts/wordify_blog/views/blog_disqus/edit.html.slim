@@ -1,20 +1,15 @@
 div data-yield="blog_navigation"
-h3
-  | Edit Disqus Config
+h3 data-bind="t.wordify_cms.disqus_config.form.edit.headline"
 div class="blog-form"
   form data-formfor-disqus_config="disqusConfig" data-event-submit="update"
     fieldset
-      legend
-        | Edit Disqus API Tokens
+      legend data-bind="t.wordify_cms.disqus_config.form.edit.headline"
       .information data-partial="blog_errors/_validation" data-context-subject="disqusConfig"
-      label for="disqus-config-api-secret"
-        | API Secret Token
+      label for="disqus-config-api-secret" data-bind="t.wordify_cms.blog.disqus_config.api_secret_token"
       input type="text" id="disqus-config-api-secret" data-bind="disqusConfig.api_secret"
-      label for="disqus-config-api-key"
-        | API Secret Token
+      label for="disqus-config-api-key" data-bind="t.wordify_cms.blog.disqus_config.api_secret_key"
       input type="text" id="disqus-config-api-key" data-bind="disqusConfig.api_key"
-      label for="disqus-config-access_token"
-        | API Access Token
+      label for="disqus-config-access_token" data-bind="t.wordify_cms.blog.disqus_config.api_access_token"
       input type="text" id="disqus-config-access_token" data-bind="disqusConfig.access_token"
     .form-actions
       button type="submit" class="btn btn-success"

@@ -1,11 +1,10 @@
 div data-yield="blog_navigation"
-h3
-  | New Post Entry
+h3 data-bind="t.wordify_cms.blog.post.form.new.headline"
 div class="blog-form"
   form data-formfor-post="post" data-event-submit="create"
     fieldset
-      legend
-        | Add a new post entry
+      legend data-bind="t.wordify_cms.blog.post.form.new.headline"
+
       .post-form data-partial="blog/_form"
 
     .form-actions

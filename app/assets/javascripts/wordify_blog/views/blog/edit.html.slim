@@ -1,11 +1,10 @@
 div data-yield="blog_navigation"
-h3
-  | Edit Post Entry
+h3 data-bind="t.wordify_cms.blog.post.form.edit.headline"
+
 div class="blog-form"
   form data-formfor-post="post" data-event-submit="update"
     fieldset
-      legend
-        | Edit post entry
+      legend data-bind="t.wordify_csm.blog.post.form.headline"
       .information data-partial="shared/_validation_errors" data-context-subject="page"
       .post-form data-partial="blog/_form"
 
