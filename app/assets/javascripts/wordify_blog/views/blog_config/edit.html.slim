@@ -19,6 +19,9 @@ div class="blog-form"
         | Category Detail Page
       select id="blog-config-category-detail-page-id" data-bind-value="blogConfig.category_page_id"
         option data-foreach-category_page="categoryPages" data-bind-value="category_page.id" data-bind="category_page.title"
+      label for="blog-config-per-page-pagination-id"
+        | (Pagination) Items per page
+      input type="text" data-bind="blogConfig.per_page_pagination" id="blog-config-per-page-pagination-id"
       .form-actions
         button type="submit" class="btn btn-success"
           i class="icon-ok"

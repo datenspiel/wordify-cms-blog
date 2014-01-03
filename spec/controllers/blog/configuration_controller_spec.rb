@@ -40,6 +40,7 @@ describe WordifyCms::Blog::ConfigurationController do
 
           expect(subject).to have_key("blog_prefix_slug")
           expect(subject["blog_prefix_slug"]).to eq "/blog"
+          expect(subject["per_page_pagination"]).to eq 10
         end
 
       end
@@ -73,7 +74,8 @@ describe WordifyCms::Blog::ConfigurationController do
           params = {
             :blog_main_page_id         => blog_page.id,
             :blog_post_detail_page_id  => detail_page.id,
-            :category_page_id          => category_page.id
+            :category_page_id          => category_page.id,
+            :per_page_pagination       => 24
           }
           WordifyCms::Blog::Configuration.should_receive(:last).
                                           and_return(blog_config)
@@ -89,6 +91,7 @@ describe WordifyCms::Blog::ConfigurationController do
 
           expect(subject).to have_key("blog_prefix_slug")
           expect(subject["blog_prefix_slug"]).to eq "/my_blog"
+          expect(subject["per_page_pagination"]).to eq 24
         end
 
       end

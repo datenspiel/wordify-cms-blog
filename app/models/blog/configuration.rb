@@ -13,6 +13,8 @@ module WordifyCms
       field :per_page_pagination, :type     => Integer,
                                   :default  => 10
 
+      attr_accessible :per_page_pagination
+
     end
   end
 end

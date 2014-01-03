@@ -15,9 +15,11 @@ module WordifyCms
       end
 
       def update
-        page_id           = params["blog_config"]["blog_main_page_id"]
-        detail_page_id    = params["blog_config"]["blog_post_detail_page_id"]
-        category_page_id  = params["blog_config"]["category_page_id"]
+        blog_config_params = params["blog_config"]
+        page_id           = blog_config_params.delete("blog_main_page_id")
+        detail_page_id    = blog_config_params.delete("blog_post_detail_page_id")
+        category_page_id  = blog_config_params.delete("category_page_id")
+
         blog_main_page    = WordifyCms::Page.find(page_id)
         detail_page       = WordifyCms::Page.find(detail_page_id)
         category_page     = WordifyCms::Page.find(category_page_id)
@@ -25,6 +27,10 @@ module WordifyCms
         @configuration.blog_main_page         = blog_main_page
         @configuration.blog_post_detail_page  = detail_page
         @configuration.category_page          = category_page
+        @configuration.class.accessible_attributes.each do |attribute|
+          @configuration.send("#{attribute}=",
+                              blog_config_params.fetch(attribute))
+        end
         @configuration.save
 
         respond_to do |format|
@@ -66,8 +72,8 @@ module WordifyCms
         blog_tag = Liquid::Template.tags.detect do |key,value|
           value.to_s.eql?(tag_class_name)
         end.first
-        regexp = Regexp.new("{%\s{0,}#{blog_tag}\s{0,}%}")
-        pages = WordifyCms::Page.all.select do |page|
+        regexp  = Regexp.new("{%\s{0,}#{blog_tag}\\W{1,}")
+        pages   = WordifyCms::Page.all.select do |page|
           page.page_type.template.match(regexp)
         end
         pages

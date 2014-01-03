@@ -49,6 +49,8 @@ class Wordify.BlogConfigurationController extends Wordify.Controller
                     j("#blog-config-post-detail-page-id").val())
     @blogConfig.set('category_page_id', \
                     j("#blog-config-category-detail-page-id").val())
+    @blogConfig.set('per_page_pagination', \
+                    j("#blog-config-per-page-pagination-id").val())
 
     Wordify.BlogConfiguration.url = "/blog_config"
     options =
