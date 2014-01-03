@@ -3,6 +3,16 @@ module WordifyCms
     module Tags
       module Paginateable
 
+        def initialize(tag_name, params, tokens)
+          options       = json_to_hash.call([params.gsub(/\|{1,}/, ",")])
+          pagination    = options.fetch("pagination", true)
+          @per_page     = options.fetch("per_page",
+                                        WordifyCms::Blog::Configuration.last.
+                                                          per_page_pagination)
+          @window_size  = 3
+          super
+        end
+
         def build_pagination(collection, context)
           params      = context.registers[:params]
           at_page     = params["page"] ? params["page"] : context['current_page']

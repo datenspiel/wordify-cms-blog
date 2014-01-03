@@ -20,19 +20,9 @@ module WordifyCms
         register_tag  "blog"
         collection   'posts'
 
-        %w{ window_size per_page }. each do |attribute|
+        %w{ window_size per_page }.each do |attribute|
           attr_reader attribute
           private     attribute
-        end
-
-        def initialize(tag_name, params, tokens)
-          options       = json_to_hash.call([params.gsub(/\|{1,}/, ",")])
-          pagination    = options.fetch("pagination", true)
-          @per_page     = options.fetch("per_page",
-                                        WordifyCms::Blog::Configuration.last.
-                                                          per_page_pagination)
-          @window_size  = 3
-          super
         end
 
         def render(context)
@@ -40,7 +30,7 @@ module WordifyCms
           posts       = WordifyCms::Blog::Post.desc(:created_at)
           pagination  = build_pagination(posts, context)
 
-          context[collection_context] = pagination["collection"]
+          context[collection_context] = pagination.fetch("collection")
           context['collection_name']  = collection_context
           context['pagination']       = pagination
 
