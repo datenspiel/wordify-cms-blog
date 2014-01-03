@@ -45,7 +45,7 @@ class Wordify.WordifyBlog extends Wordify.Extension
   # Hook in at the end of the toolbar
   @hookIn {
     at          : 'toolbar',
-    icon        : 'icon-white icon-search',
+    icon        : 'icon-white icon-pencil',
     locales     : 'wordify_cms.blog.navigation',
     identifier  : 'wordify_blog',
     route       : 'blog.index',
